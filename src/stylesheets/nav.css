@@ -17,6 +17,7 @@
 .section-sizing {
   width: 40vw;
   height: 100%;
+  margin: 10px;
 }
 
 .section-inside {
@@ -24,4 +25,16 @@
   border-radius: 3px;
   margin-top: 10px;
   padding: 9px 8px;
+}
+
+.calc-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.spacing {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0px;
 }

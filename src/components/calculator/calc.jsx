@@ -1,5 +1,9 @@
 import React from 'react';
 
+import DatePicker from 'react-datepicker'
+
+import "react-datepicker/dist/react-datepicker.css";
+
 // import Date from './date';
 // import Info from './info';
 // import State from './state';
@@ -8,7 +12,23 @@ import React from 'react';
 class Calc extends React.Component {
   constructor(props) {
     super(props);
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDateChange = this.handleDateChange.bind(this);
+    this.dropdownChanged = this.dropdownChanged.bind(this);
+    this.state = {
+      startDate: new Date(),
+      states: 'CA',
+    };
+  }
+
+  handleDateChange(date) {
+    this.setState({
+      startDate: date,
+    });
+  }
+
+  dropdownChanged(e) {
+    this.setState({ states: e.target.value });
   }
 
   handleSubmit(e) {
@@ -18,19 +38,22 @@ class Calc extends React.Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} className="calc-wrapper">
           <div className="section-sizing">
             <div className="header">
               <span>Select Calculation date and state</span>
             </div>
             <div className="section-inside">
-              <div>
+              <div className="spacing">
                 <label>Check Date</label>
-                <select name="" id="" />
+                <DatePicker
+                  selected={this.state.startDate}
+                  onChange={this.handleDateChange}
+                />
               </div>
-              <div>
+              <div className="spacing">
                 <label>State for withholding</label>
-                <select name="states">
+                <select name="states" value={this.state.states} onChange={this.dropdownChanged}>
                   <option value="AL">Alabama</option>
                   <option value="AK">Alaska</option>
                   <option value="AZ">Arizona</option>
@@ -86,27 +109,27 @@ class Calc extends React.Component {
               </div>
             </div>
           </div>
-          <div>
+          <div className="section-sizing">
             <div className="header">
               <span>General Information</span>
             </div>
             <div className="section-inside">
-              <div>
+              <div className="spacing">
                 <label>Gross Pay</label>
                 <input type="text" placeholder="0" />
               </div>
-              <div>
+              <div className="spacing">
                 <label>Gross Pay Type</label>
                 <select name="pay-type">
                   <option value="Anually">Anually</option>
                   <option value="Period">Pay Per Period</option>
                 </select>
               </div>
-              <div>
+              <div className="spacing">
                 <label>Gross Salary YTD</label>
-                <input type="text" placeholder="0"/>
+                <input type="text" placeholder="0" />
               </div>
-              <div>
+              <div className="spacing">
                 <label>Pay Frequency</label>
                 <select name="pay-frequency">
                   <option value="Daily">Daily</option>
@@ -119,64 +142,66 @@ class Calc extends React.Component {
                   <option value="Anually">Anually</option>
                 </select>
               </div>
-              <div>
+              <div className="spacing">
                 <label>Federal Filing Status</label>
                 <select name="filing-status">
                   <option value="Single">Single</option>
                   <option value="Married">Married</option>
-                  <option value="Married Use Single Rate">Married Use Single Rate</option>
+                  <option value="Married Use Single Rate">
+                    Married Use Single Rate
+                  </option>
                   <option value="Nonresident Alien">Nonresident Alien</option>
                 </select>
               </div>
-              <div>
+              <div className="spacing">
                 <label># of Federal Allowances</label>
-                <input type="text" placeholder="0"/>
+                <input type="text" placeholder="0" />
               </div>
-              <div>
+              <div className="spacing">
                 <label>Additional Federal Withholding</label>
-                <input type="text" placeholder="0"/>
+                <input type="text" placeholder="0" />
               </div>
-              <div>
+              <div className="spacing">
                 <label>Round Federal Withholding</label>
                 <div>
-                  <input type="radio" name="withholding" value="yes"/> Yes
-                  <input type="radio" name="withholding" value="no" checked/> No
+                  <input type="radio" name="withholding" value="yes" /> Yes
+                  <input type="radio" name="withholding" value="no" defaultChecked /> No
                 </div>
               </div>
-              <div>
+              <div className="spacing">
                 <label>I am exempt from</label>
                 <div>
-                  <input type="checkbox" value="Federal"/> Federal Tax
-                  <input type="checkbox" value="FICA"/> FICA
-                  <input type="checkbox" value="Medicare"/> Medicare
+                  <input type="checkbox" value="Federal" /> Federal Tax
+                  <input type="checkbox" value="FICA" /> FICA
+                  <input type="checkbox" value="Medicare" /> Medicare
                 </div>
               </div>
             </div>
           </div>
-          <div>
+          <div className="section-sizing">
             <div className="header">
               <span>State and Local Information</span>
             </div>
             <div className="section-inside">
-              <div>
+              <div className="spacing">
                 <label>Regular allownaces</label>
-                <input type="text" placeholder="0"/>
+                <input type="text" placeholder="0" />
               </div>
-              <div>
+              <div className="spacing">
                 <label>California SDI</label>
                 <div>
-                  <input type="radio" name="SDI" value="Yes" checked/> Yes
-                  <input type="radio" name="SDI" value="No"/> No
+                  <input type="radio" name="SDI" value="Yes" defaultChecked /> Yes
+                  <input type="radio" name="SDI" value="No" /> No
                 </div>
               </div>
-              <div>
+              <div className="spacing">
                 <label>Exempt State</label>
                 <div>
-                  <input type="radio" name="exempt" value="Yes"/> Yes
-                  <input type="radio" name="exempt" value="No" checked/> No
+                  <input type="radio" name="exempt" value="Yes" /> Yes
+                  <input type="radio" name="exempt" value="No" defaultChecked /> No
                 </div>
               </div>
-              <div>
+              <div className="spacing">
                 <label>Filing Status</label>
                 <select name="filing">
                   <option value="Single">Single</option>
@@ -184,15 +209,15 @@ class Calc extends React.Component {
                   <option value="Head of Household">Head of Household</option>
                 </select>
               </div>
-              <div>
+              <div className="spacing">
                 <label>Additional State Withholding</label>
-                <input type="text" placeholder="0"/>
+                <input type="text" placeholder="0" />
               </div>
-              <div>
+              <div className="spacing">
                 <label>Additional Allowances</label>
-                <input type="text" placeholder="0"/>
+                <input type="text" placeholder="0" />
               </div>
-              <div>
+              <div className="spacing">
                 <label>Supplemental Type</label>
                 <select name="supplemental">
                   <option value="Bonus">BONUS</option>
@@ -202,20 +227,20 @@ class Calc extends React.Component {
               </div>
             </div>
           </div>
-          <div>
+          <div className="section-sizing">
             <div className="header">
               <span>Voluntary Deduction Section</span>
             </div>
             <div className="section-inside">
-              <div>
+              <div className="spacing">
                 <label>Deduction #1 Name</label>
-                <input type="text"/>
+                <input type="text" />
               </div>
-              <div>
+              <div className="spacing">
                 <label>Deduction #1 Amount</label>
-                <input type="text"/>
+                <input type="text" />
               </div>
-              <div>
+              <div className="spacing">
                 <label>Deduction #1 Type</label>
                 <select name="deduction">
                   <option value="Gross">% of Gross Pay</option>
@@ -224,13 +249,13 @@ class Calc extends React.Component {
                   <option value="Hourly"># Hourly Rate</option>
                 </select>
               </div>
-              <div>
+              <div className="spacing">
                 <label>Ded. #1 Exempt from</label>
                 <div>
-                  <input type="checkbox" value="Federal"/> Federal
-                  <input type="checkbox" value="Fica"/> Fica
-                  <input type="checkbox" value="State"/> State
-                  <input type="checkbox" value="Local"/> Local
+                  <input type="checkbox" value="Federal" /> Federal
+                  <input type="checkbox" value="Fica" /> Fica
+                  <input type="checkbox" value="State" /> State
+                  <input type="checkbox" value="Local" /> Local
                 </div>
               </div>
             </div>
