@@ -9,7 +9,13 @@ class NavBar extends React.Component {
   render() {
     let nav = (
       <div className="navbar">
-        hello
+        <div>
+          <div className="logo"></div>
+          <div className="nav-elements">Calculator</div>
+        </div>
+        <div>
+          Profile
+        </div>
       </div>
     )
 
