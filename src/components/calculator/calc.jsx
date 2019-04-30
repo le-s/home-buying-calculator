@@ -108,21 +108,48 @@ class Calc extends React.Component {
               </div>
               <div>
                 <label>Pay Frequency</label>
+                <select name="pay-frequency">
+                  <option value="Daily">Daily</option>
+                  <option value="Weekly">Weekly</option>
+                  <option value="Bi-weekly">Bi-weekly</option>
+                  <option value="Semi-monthly">Semi-monthly</option>
+                  <option value="Monthly">Monthly</option>
+                  <option value="Quarterly">Quarterly</option>
+                  <option value="Semi-annually">Semi-annually</option>
+                  <option value="Anually">Anually</option>
+                </select>
               </div>
               <div>
                 <label>Federal Filing Status</label>
+                <select name="filing-status">
+                  <option value="Single">Single</option>
+                  <option value="Married">Married</option>
+                  <option value="Married Use Single Rate">Married Use Single Rate</option>
+                  <option value="Nonresident Alien">Nonresident Alien</option>
+                </select>
               </div>
               <div>
                 <label># of Federal Allowances</label>
+                <input type="text" placeholder="0"/>
               </div>
               <div>
                 <label>Additional Federal Withholding</label>
+                <input type="text" placeholder="0"/>
               </div>
               <div>
                 <label>Round Federal Withholding</label>
+                <div>
+                  <input type="radio" name="withholding" value="yes"/> Yes
+                  <input type="radio" name="withholding" value="no" checked/> No
+                </div>
               </div>
               <div>
                 <label>I am exempt from</label>
+                <div>
+                  <input type="checkbox" value="Federal"/> Federal Tax
+                  <input type="checkbox" value="FICA"/> FICA
+                  <input type="checkbox" value="Medicare"/> Medicare
+                </div>
               </div>
             </div>
           </div>
@@ -130,13 +157,83 @@ class Calc extends React.Component {
             <div className="header">
               <span>State and Local Information</span>
             </div>
-            <div className="section-inside" />
+            <div className="section-inside">
+              <div>
+                <label>Regular allownaces</label>
+                <input type="text" placeholder="0"/>
+              </div>
+              <div>
+                <label>California SDI</label>
+                <div>
+                  <input type="radio" name="SDI" value="Yes" checked/> Yes
+                  <input type="radio" name="SDI" value="No"/> No
+                </div>
+              </div>
+              <div>
+                <label>Exempt State</label>
+                <div>
+                  <input type="radio" name="exempt" value="Yes"/> Yes
+                  <input type="radio" name="exempt" value="No" checked/> No
+                </div>
+              </div>
+              <div>
+                <label>Filing Status</label>
+                <select name="filing">
+                  <option value="Single">Single</option>
+                  <option value="Married">Married</option>
+                  <option value="Head of Household">Head of Household</option>
+                </select>
+              </div>
+              <div>
+                <label>Additional State Withholding</label>
+                <input type="text" placeholder="0"/>
+              </div>
+              <div>
+                <label>Additional Allowances</label>
+                <input type="text" placeholder="0"/>
+              </div>
+              <div>
+                <label>Supplemental Type</label>
+                <select name="supplemental">
+                  <option value="Bonus">BONUS</option>
+                  <option value="Commission">COMMISSION</option>
+                  <option value="None">NONE</option>
+                </select>
+              </div>
+            </div>
           </div>
           <div>
             <div className="header">
               <span>Voluntary Deduction Section</span>
             </div>
-            <div className="section-inside" />
+            <div className="section-inside">
+              <div>
+                <label>Deduction #1 Name</label>
+                <input type="text"/>
+              </div>
+              <div>
+                <label>Deduction #1 Amount</label>
+                <input type="text"/>
+              </div>
+              <div>
+                <label>Deduction #1 Type</label>
+                <select name="deduction">
+                  <option value="Gross">% of Gross Pay</option>
+                  <option value="Net">% of Net Pay</option>
+                  <option value="Fixed">$ Fixed Amount</option>
+                  <option value="Hourly"># Hourly Rate</option>
+                </select>
+              </div>
+              <div>
+                <label>Ded. #1 Exempt from</label>
+                <div>
+                  <input type="checkbox" value="Federal"/> Federal
+                  <input type="checkbox" value="Fica"/> Fica
+                  <input type="checkbox" value="State"/> State
+                  <input type="checkbox" value="Local"/> Local
+                </div>
+              </div>
+            </div>
           </div>
         </form>
       </div>
