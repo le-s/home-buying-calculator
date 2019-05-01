@@ -20,7 +20,7 @@ class NavBar extends React.Component {
         </div>
         <div className="calc-nav">
           <div className="header-element">
-            Salary Paycheck Calculator
+            What kinda of home can I buy?
           </div>
         </div>
       </div>
