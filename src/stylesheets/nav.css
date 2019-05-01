@@ -1,6 +1,15 @@
 .navbar {
   height: 6vh;
   width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 .logo {
@@ -80,7 +89,18 @@
 
 .header-element {
   border-bottom: 1.5px solid #0390E3;
-  cursor: pointer;
+}
+
+.nav-elements-wrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  border-bottom: 1.5px solid #0390E3;
+  margin-left: 20px;
+}
+
+.nav-elements {
+  color: #0390E3;
 }
 
 .footer-wrapper {
@@ -112,4 +132,18 @@
 .format-button {
   display: flex;
   justify-content: center;
+}
+
+.profile-wrapper {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.profile-image {
+  background-image: url(https://cdn0.iconfinder.com/data/icons/office-and-business-16/32/OFFICE_BLUE-07-512.png);
+  background-size: cover;
+  width: 33px;
+  height: 33px;
+  margin-left: 6px;
 }

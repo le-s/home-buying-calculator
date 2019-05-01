@@ -11,6 +11,7 @@ class Calc extends React.Component {
     this.handleDateChange = this.handleDateChange.bind(this);
     this.dropdownChanged = this.dropdownChanged.bind(this);
     this.state = {
+      pageType: 'calc',
       startDate: new Date(),
       states: 'CA',
     };
@@ -28,11 +29,13 @@ class Calc extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    this.setState({ pageType: 'result' })
   }
 
   render() {
-    return (
-      <div className="header-calc-wrapper">
+    let displayPage;
+    if (this.state.pageType === 'calc') {
+      displayPage = <div className="header-calc-wrapper">
         <div className="calc-nav">
           <div className="header-element">
             Salary Paycheck Calculator
@@ -268,10 +271,19 @@ class Calc extends React.Component {
               </div>
             </div>
             <div className="format-button">
-              <input className="button-blue" type="submit" value="Calculate"/>
+              <input className="button-blue" type="submit" value="Calculate" />
             </div>
           </form>
         </div>
+      </div>
+    } else if (this.state.pageType === 'result'){
+      displayPage = <div>
+        this is the results page
+      </div>
+    }
+    return (
+      <div>
+        {displayPage}
       </div>
     );
   }
