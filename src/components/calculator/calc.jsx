@@ -1,6 +1,7 @@
 import React from 'react';
 
 import DatePicker from 'react-datepicker'
+import StateDropdown from './state_dropdown';
 
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -10,11 +11,23 @@ class Calc extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDateChange = this.handleDateChange.bind(this);
     this.dropdownChanged = this.dropdownChanged.bind(this);
+    this.onUpdateUSState = this.onUpdateUSState.bind(this);
     this.state = {
       pageType: 'calc',
+      formData: {
+        usState: 'CA'
+      },
       startDate: new Date(),
       states: 'CA',
     };
+  }
+
+  onUpdateUSState(e) {
+    this.setState({
+      formData: {
+        usState: e.target.value
+      }
+    });
   }
 
   handleDateChange(date) {
@@ -44,7 +57,6 @@ class Calc extends React.Component {
         <div className="nav-calc">
           <form onSubmit={this.handleSubmit} className="form-wrapper">
             <div className="calc-wrapper">
-              <div className="calc-column">
                 <div className="section-sizing">
                   <div className="header">
                     <span>Select Calculation date and state</span>
@@ -59,59 +71,7 @@ class Calc extends React.Component {
                     </div>
                     <div className="spacing">
                       <label>State for withholding</label>
-                      <select name="states" value={this.state.states} onChange={this.dropdownChanged}>
-                        <option value="AL">Alabama</option>
-                        <option value="AK">Alaska</option>
-                        <option value="AZ">Arizona</option>
-                        <option value="AR">Arkansas</option>
-                        <option value="CA">California</option>
-                        <option value="CO">Colorado</option>
-                        <option value="CT">Connecticut</option>
-                        <option value="DE">Delaware</option>
-                        <option value="DC">District Of Columbia</option>
-                        <option value="FL">Florida</option>
-                        <option value="GA">Georgia</option>
-                        <option value="HI">Hawaii</option>
-                        <option value="ID">Idaho</option>
-                        <option value="IL">Illinois</option>
-                        <option value="IN">Indiana</option>
-                        <option value="IA">Iowa</option>
-                        <option value="KS">Kansas</option>
-                        <option value="KY">Kentucky</option>
-                        <option value="LA">Louisiana</option>
-                        <option value="ME">Maine</option>
-                        <option value="MD">Maryland</option>
-                        <option value="MA">Massachusetts</option>
-                        <option value="MI">Michigan</option>
-                        <option value="MN">Minnesota</option>
-                        <option value="MS">Mississippi</option>
-                        <option value="MO">Missouri</option>
-                        <option value="MT">Montana</option>
-                        <option value="NE">Nebraska</option>
-                        <option value="NV">Nevada</option>
-                        <option value="NH">New Hampshire</option>
-                        <option value="NJ">New Jersey</option>
-                        <option value="NM">New Mexico</option>
-                        <option value="NY">New York</option>
-                        <option value="NC">North Carolina</option>
-                        <option value="ND">North Dakota</option>
-                        <option value="OH">Ohio</option>
-                        <option value="OK">Oklahoma</option>
-                        <option value="OR">Oregon</option>
-                        <option value="PA">Pennsylvania</option>
-                        <option value="RI">Rhode Island</option>
-                        <option value="SC">South Carolina</option>
-                        <option value="SD">South Dakota</option>
-                        <option value="TN">Tennessee</option>
-                        <option value="TX">Texas</option>
-                        <option value="UT">Utah</option>
-                        <option value="VT">Vermont</option>
-                        <option value="VA">Virginia</option>
-                        <option value="WA">Washington</option>
-                        <option value="WV">West Virginia</option>
-                        <option value="WI">Wisconsin</option>
-                        <option value="WY">Wyoming</option>
-                      </select>
+                      <StateDropdown currentUSState={this.state.formData.usState} onUpdateUSState={this.onUpdateUSState} />
                     </div>
                   </div>
                 </div>
@@ -184,8 +144,6 @@ class Calc extends React.Component {
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className="calc-column">
                 <div className="section-sizing">
                   <div className="header">
                     <span>State and Local Information</span>
@@ -241,15 +199,15 @@ class Calc extends React.Component {
                   </div>
                   <div className="section-inside">
                     <div className="spacing">
-                      <label>Deduction #1 Name</label>
+                      <label>Deduction Name</label>
                       <input type="text" />
                     </div>
                     <div className="spacing">
-                      <label>Deduction #1 Amount</label>
+                      <label>Deduction Amount</label>
                       <input type="text" />
                     </div>
                     <div className="spacing">
-                      <label>Deduction #1 Type</label>
+                      <label>Deduction Type</label>
                       <select name="deduction">
                         <option value="Gross">% of Gross Pay</option>
                         <option value="Net">% of Net Pay</option>
@@ -258,7 +216,7 @@ class Calc extends React.Component {
                       </select>
                     </div>
                     <div className="spacing">
-                      <label>Ded. #1 Exempt from</label>
+                      <label>Ded. Exempt from</label>
                       <div>
                         <input type="checkbox" value="Federal" /> Federal
                         <input type="checkbox" value="Fica" /> Fica
@@ -268,7 +226,6 @@ class Calc extends React.Component {
                     </div>
                   </div>
                 </div>
-              </div>
             </div>
             <div className="format-button">
               <input className="button-blue" type="submit" value="Calculate" />
