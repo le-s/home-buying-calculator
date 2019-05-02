@@ -9,6 +9,7 @@ class Calc extends React.Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleReset = this.handleReset.bind(this);
     this.onUpdateScore = this.onUpdateScore.bind(this);
     this.handleAnnualSlider = this.handleAnnualSlider.bind(this);
     this.handleAnnualText = this.handleAnnualText.bind(this);
@@ -25,8 +26,8 @@ class Calc extends React.Component {
         score: '0',
         insurance: '0',
         fees: '0',
-        inflation: '0',
-        savings: '0'
+        inflation: '2',
+        savings: '4'
       },
     };
   }
@@ -53,6 +54,16 @@ class Calc extends React.Component {
         fees: document.getElementById("fees").value,
         inflation: document.getElementById("inflation").value,
         savings: document.getElementById("savings").value,
+      }
+    })
+  }
+
+  handleReset(e) {
+    e.preventDefault();
+    this.setState({
+      pageType: 'calc',
+      formData: {
+
       }
     })
   }
@@ -96,7 +107,7 @@ class Calc extends React.Component {
                   <div className="section-inside">
                     <div className="spacing">
                       <label htmlFor="location">Location</label>
-                      <input id="location" type="text" placeholder="San Jose, CA" />
+                      <input id="location" type="text" placeholder="City, State" autoFocus/>
                     </div>
                     <div className="spacing">
                       <p>Marital Status</p>
@@ -146,11 +157,11 @@ class Calc extends React.Component {
                     </div>
                     <div className="spacing">
                       <label htmlFor="inflation">Annual General Inflation</label>
-                      <span className="percentage"><input type="text" placeholder="0" id="inflation"/></span>
+                      <span className="percentage"><input type="text" defaultValue="2" id="inflation"/></span>
                     </div>
                     <div className="spacing">
                       <label htmlFor="savings">Annual Rate of Return on Savings</label>
-                      <span className="percentage"><input type="text" placeholder="0" id="savings"/></span>
+                      <span className="percentage"><input type="text" defaultValue="4" id="savings"/></span>
                     </div>
                   </div>
                 </div>
@@ -162,7 +173,7 @@ class Calc extends React.Component {
         </div>
       </div>
     } else if (this.state.pageType === 'result'){
-      displayPage = <Result formData={this.state.formData} commas={this.numberWithCommas} pageType={this.state.pageType}/>
+      displayPage = <Result formData={this.state.formData} commas={this.numberWithCommas} reset={this.handleReset}/>
     }
     return (
       <div>

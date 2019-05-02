@@ -1,18 +1,6 @@
 import React from 'react';
 
 class Result extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleReset = this.handleReset.bind(this);
-  }
-
-  handleReset(e) {
-    e.preventDefault();
-    this.setState({
-      
-    })
-  }
-
   render() {
     return (
       <div>
@@ -121,7 +109,9 @@ class Result extends React.Component {
             </div>
           </div>
         </div>
-        {/* <button onClick={this.handleReset}>Reset</button> */}
+        <div className="format-button">
+          <button className="button-blue" onClick={this.props.reset}>Reset</button>
+        </div>
       </div>
     );
   }
