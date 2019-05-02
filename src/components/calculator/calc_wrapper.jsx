@@ -1,6 +1,7 @@
 import React from 'react';
 
 import ScoreDropdown from './score_dropdown';
+import Result from './result';
 
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -8,7 +9,6 @@ class Calc extends React.Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleDateChange = this.handleDateChange.bind(this);
     this.onUpdateScore = this.onUpdateScore.bind(this);
     this.handleAnnualSlider = this.handleAnnualSlider.bind(this);
     this.handleAnnualText = this.handleAnnualText.bind(this);
@@ -22,7 +22,7 @@ class Calc extends React.Component {
         annualIncome: '0',
         downPayment: '0',
         monthlyDebt: '0',
-        score: '760',
+        score: '0',
         insurance: '0',
         fees: '0',
         inflation: '0',
@@ -39,15 +39,8 @@ class Calc extends React.Component {
     });
   }
 
-  handleDateChange(date) {
-    this.setState({
-      startDate: date,
-    });
-  }
-
   handleSubmit(e) {
     e.preventDefault();
-    console.log(document.getElementById("creditScore"))
     this.setState({ 
       pageType: 'result',
       formData: {
@@ -62,7 +55,6 @@ class Calc extends React.Component {
         savings: document.getElementById("savings").value,
       }
     })
-    console.log(this.state);
   }
 
   numberWithCommas(x) {
@@ -103,36 +95,38 @@ class Calc extends React.Component {
                   </div>
                   <div className="section-inside">
                     <div className="spacing">
-                      <label>Location</label>
-                      <input type="text" placeholder="San Jose, CA" />
+                      <label htmlFor="location">Location</label>
+                      <input id="location" type="text" placeholder="San Jose, CA" />
                     </div>
                     <div className="spacing">
-                      <label>Marital Status</label>
+                      <p>Marital Status</p>
                       <div className="marital-radio-spacing" id="marital">
-                        <input type="radio" name="marital-status" value="single" defaultChecked /> Single
-                        <input type="radio" name="marital-status" value="married" /> Married
+                        <input type="radio" name="marital-status" value="single" id="single" defaultChecked /> 
+                        <label htmlFor="single">Single</label>
+                        <input type="radio" name="marital-status" value="married" id="married"/> 
+                        <label htmlFor="married">Married</label>
                       </div>
                     </div>
                     <div className="spacing">
-                      <label>Annual Income</label>
-                      <div className="slider-wrapper">
+                      <label htmlFor="annual-income">Annual Income</label>
+                      <div className="slider-wrapper" id="annual-income">
                         <span className="dollar"><input type="text" id="annualRange" onInput={this.handleAnnualText} min="0" max="1000000" placeholder="0"/></span>
                         <input type="range" min="0" max="1000000" step="1000" defaultValue="0" onInput={this.handleAnnualSlider} id="annualR"/>
                       </div>
                     </div>
                     <div className="spacing">
-                      <label>Down Payment</label>
-                      <div className="slider-wrapper">
+                      <label htmlFor="down-payment">Down Payment</label>
+                      <div className="slider-wrapper" id="down-payment">
                         <span className="dollar"><input type="text" id="downRange" onInput={this.handleDownText} min="0" max="10000000" placeholder="0"/></span>
                         <input type="range" min="0" max="10000000" step="5000" defaultValue="0" onInput={this.handleDownSlider} id="downR"/>
                       </div>
                     </div>
                     <div className="spacing">
-                      <label>Monthly Debt</label>
+                      <label htmlFor="monthlyDebt">Monthly Debt</label>
                       <span className="dollar"><input type="text" placeholder="0" id="monthlyDebt"/></span>
                     </div>
                     <div className="spacing">
-                      <label>Credit Score</label>
+                      <label htmlFor="creditScore">Credit Score</label>
                       <ScoreDropdown currentScore={this.state.formData.score} onUpdateScore={this.onUpdateScore} />
                     </div>
                   </div>
@@ -143,19 +137,19 @@ class Calc extends React.Component {
                   </div>
                   <div className="section-inside">
                     <div className="spacing">
-                      <label>Annual Homeowner's Insurance</label>
+                      <label htmlFor="insurance">Annual Homeowner's Insurance</label>
                     <span className="percentage"><input type="text" placeholder="0" id="insurance"/></span>
                     </div>
                     <div className="spacing">
-                      <label>Monthly HOA / Condo Fees</label>
+                      <label htmlFor="fees">Monthly HOA / Condo Fees</label>
                       <span className="dollar"><input type="text" placeholder="0" id="fees"/></span>
                     </div>
                     <div className="spacing">
-                      <label>Annual General Inflation</label>
+                      <label htmlFor="inflation">Annual General Inflation</label>
                       <span className="percentage"><input type="text" placeholder="0" id="inflation"/></span>
                     </div>
                     <div className="spacing">
-                      <label>Annual Rate of Return on Savings</label>
+                      <label htmlFor="savings">Annual Rate of Return on Savings</label>
                       <span className="percentage"><input type="text" placeholder="0" id="savings"/></span>
                     </div>
                   </div>
@@ -168,17 +162,7 @@ class Calc extends React.Component {
         </div>
       </div>
     } else if (this.state.pageType === 'result'){
-      displayPage = <div>
-        marital status: {this.state.formData.maritalStatus}
-        annual income: {this.state.formData.annualIncome}
-        down payment: {this.state.formData.downPayment}
-        monthly debt: {this.state.formData.monthlyDebt}
-        score: {this.state.formData.score}
-        insurance: {this.state.formData.insurance}
-        fees: {this.state.formData.fees}
-        inflation: {this.state.formData.inflation}
-        savings: {this.state.formData.savings}
-      </div>
+      displayPage = <Result formData={this.state.formData} commas={this.numberWithCommas} pageType={this.state.pageType}/>
     }
     return (
       <div>

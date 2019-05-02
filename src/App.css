@@ -38,6 +38,18 @@ footer {
   margin-top: 40px;
 }
 
+p {
+  margin: 10px 0px;
+}
+
+hr {
+  width: 93%;
+}
+
+input {
+  font-size: 12px;
+}
+
 input[type="text"] {
   /* display: block;
 	box-sizing: border-box;
@@ -54,6 +66,80 @@ input[type="text"] {
   -webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33); */
   border: lightgray 1px solid;
   color: black;
+}
+
+input[type="range"] { 
+  margin: auto;
+  -webkit-appearance: none;
+  position: relative;
+  overflow: hidden;
+  height: 23px;
+  width: 195px;
+  cursor: pointer;
+  border-radius: 0; /* iOS */
+  margin-top: 10px;
+}
+
+::-webkit-slider-runnable-track {
+    background: #ddd;
+}
+
+/*
+ * 1. Set to 0 width and remove border for a slider without a thumb
+ */
+::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 10px; /* 1 */
+    height: 23px;
+    background: #fff;
+    box-shadow: -100vw 0 0 100vw #0390E3;
+    border: 2px solid #999; /* 1 */
+}
+
+::-moz-range-track {
+    height: 23px;
+    background: #ddd;
+}
+
+::-moz-range-thumb {
+    background: #fff;
+    height: 23px;
+    width: 10px;
+    border: 3px solid #999;
+    border-radius: 0 !important;
+    box-shadow: -100vw 0 0 100vw #0390E3;
+    box-sizing: border-box;
+}
+
+::-ms-fill-lower { 
+    background: #0390E3;
+}
+
+::-ms-thumb { 
+    background: #fff;
+    border: 2px solid #999;
+    height: 23px;
+    width: 10px;
+    box-sizing: border-box;
+}
+
+::-ms-ticks-after { 
+    display: none; 
+}
+
+::-ms-ticks-before { 
+    display: none; 
+}
+
+::-ms-track { 
+    background: #ddd;
+    color: transparent;
+    height: 23px;
+    border: none;
+}
+
+::-ms-tooltip { 
+    display: none;
 }
 
 select:focus,
