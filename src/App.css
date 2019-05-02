@@ -26,31 +26,34 @@
 main {
   background-color: #F6F5F6;
   height: 100%;
-  padding: 84px 0px;
+  padding-top: 84px;
 }
 
 footer {
   height: 4vh;
-  position: fixed;
   bottom: 0;
   width: 100%;
   background-color: white;
+  position: relative;
+  margin-top: 40px;
 }
 
 input[type="text"] {
-  display: block;
+  /* display: block;
 	box-sizing: border-box;
 	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	width: 100%;
+	-moz-box-sizing: border-box; */
+	width: 178px;
 	padding: 8px;
 	border-radius: 6px;
-	-webkit-border-radius:6px;
+	/* -webkit-border-radius:6px;
 	-moz-border-radius:6px;
 	border: 2px solid #fff;
 	box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
 	-moz-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
-	-webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
+  -webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33); */
+  border: lightgray 1px solid;
+  color: black;
 }
 
 @keyframes App-logo-spin {

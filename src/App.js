@@ -13,10 +13,10 @@ function App() {
       </nav>
       <main>
         <Calc />
-      </main>
       <footer>
         <Footer />
       </footer>
+      </main>
     </div>
   );
 }

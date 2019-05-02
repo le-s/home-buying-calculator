@@ -14,6 +14,7 @@ class Calc extends React.Component {
     this.handleAnnualText = this.handleAnnualText.bind(this);
     this.handleDownSlider = this.handleDownSlider.bind(this);
     this.handleDownText = this.handleDownText.bind(this);
+    this.numberWithCommas = this.numberWithCommas.bind(this);
     this.state = {
       pageType: 'calc',
       formData: {
@@ -41,16 +42,22 @@ class Calc extends React.Component {
     this.setState({ pageType: 'result' })
   }
 
+  numberWithCommas(x) {
+    let parts = x.toString().split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return parts.join(".");
+  }
+
   handleAnnualSlider() {
-    document.getElementById("annualRange").value = document.getElementById("annualR").value;
+    document.getElementById("annualRange").value = this.numberWithCommas(document.getElementById("annualR").value);
   }
 
   handleAnnualText() {
-    document.getElementById("annualR").value = document.getElementById("annualRange").value;
+    document.getElementById("annualR").value = document.getElementById("annualRange").value.toLocaleString();
   }
 
   handleDownSlider() {
-    document.getElementById("downRange").value = document.getElementById("downR").value;
+    document.getElementById("downRange").value = this.numberWithCommas(document.getElementById("downR").value);
   }
 
   handleDownText() {
@@ -78,7 +85,7 @@ class Calc extends React.Component {
                     </div>
                     <div className="spacing">
                       <label>Marital Status</label>
-                      <div>
+                      <div className="marital-radio-spacing">
                         <input type="radio" name="marital-status" value="single" defaultChecked /> Single
                         <input type="radio" name="marital-status" value="married" /> Married
                       </div>
@@ -86,20 +93,20 @@ class Calc extends React.Component {
                     <div className="spacing">
                       <label>Annual Income</label>
                       <div className="slider-wrapper">
-                        <span className="dollar"><input type="text" id="annualRange" onInput={this.handleAnnualText} min="0" max="1000000" defaultValue="0"/></span>
+                        <span className="dollar"><input type="text" id="annualRange" onInput={this.handleAnnualText} min="0" max="1000000" placeholder="0"/></span>
                         <input type="range" min="0" max="1000000" step="1000" defaultValue="0" onInput={this.handleAnnualSlider} id="annualR"/>
                       </div>
                     </div>
                     <div className="spacing">
                       <label>Down Payment</label>
                       <div className="slider-wrapper">
-                        <span className="dollar"><input type="text" id="downRange" onInput={this.handleDownText} min="0" max="10000000" defaultValue="0"/></span>
+                        <span className="dollar"><input type="text" id="downRange" onInput={this.handleDownText} min="0" max="10000000" placeholder="0"/></span>
                         <input type="range" min="0" max="10000000" step="5000" defaultValue="0" onInput={this.handleDownSlider} id="downR"/>
                       </div>
                     </div>
                     <div className="spacing">
                       <label>Monthly Debt</label>
-                      <span className="dollar"><input type="text" defaultValue="0"/></span>
+                      <span className="dollar"><input type="text" placeholder="0" /></span>
                     </div>
                     <div className="spacing">
                       <label>Credit Score</label>
@@ -118,7 +125,7 @@ class Calc extends React.Component {
                     </div>
                     <div className="spacing">
                       <label>Monthly HOA / Condo Fees</label>
-                      <span className="dollar"><input type="text" defaultValue="0" /></span>
+                      <span className="dollar"><input type="text" placeholder="0" /></span>
                     </div>
                     <div className="spacing">
                       <label>Annual General Inflation</label>
