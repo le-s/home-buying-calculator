@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/home-buying-calculator/static/css/main.4101f7de.chunk.css",
+    "main.js": "/home-buying-calculator/static/js/main.c773fd60.chunk.js",
+    "main.js.map": "/home-buying-calculator/static/js/main.c773fd60.chunk.js.map",
+    "runtime~main.js": "/home-buying-calculator/static/js/runtime~main.fe757158.js",
+    "runtime~main.js.map": "/home-buying-calculator/static/js/runtime~main.fe757158.js.map",
+    "static/css/2.c7bb94bc.chunk.css": "/home-buying-calculator/static/css/2.c7bb94bc.chunk.css",
+    "static/js/2.cc48f690.chunk.js": "/home-buying-calculator/static/js/2.cc48f690.chunk.js",
+    "static/js/2.cc48f690.chunk.js.map": "/home-buying-calculator/static/js/2.cc48f690.chunk.js.map",
+    "index.html": "/home-buying-calculator/index.html",
+    "precache-manifest.c1b80bb1f35cbc6d2de1030f22ae1992.js": "/home-buying-calculator/precache-manifest.c1b80bb1f35cbc6d2de1030f22ae1992.js",
+    "service-worker.js": "/home-buying-calculator/service-worker.js",
+    "static/css/2.c7bb94bc.chunk.css.map": "/home-buying-calculator/static/css/2.c7bb94bc.chunk.css.map",
+    "static/css/main.4101f7de.chunk.css.map": "/home-buying-calculator/static/css/main.4101f7de.chunk.css.map"
+  }
+}
