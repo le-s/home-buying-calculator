@@ -18,7 +18,15 @@ class Calc extends React.Component {
     this.state = {
       pageType: 'calc',
       formData: {
-        score: '760'
+        maritalStatus: 'single',
+        annualIncome: '0',
+        downPayment: '0',
+        monthlyDebt: '0',
+        score: '760',
+        insurance: '0',
+        fees: '0',
+        inflation: '0',
+        savings: '0'
       },
     };
   }
@@ -26,7 +34,7 @@ class Calc extends React.Component {
   onUpdateScore(e) {
     this.setState({
       formData: {
-        usState: e.target.value
+        score: e.target.value
       }
     });
   }
@@ -39,7 +47,22 @@ class Calc extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.setState({ pageType: 'result' })
+    console.log(document.getElementById("creditScore"))
+    this.setState({ 
+      pageType: 'result',
+      formData: {
+        maritalStatus: document.querySelector('input[name="marital-status"]:checked').value,
+        annualIncome: document.getElementById("annualR").value,
+        downPayment: document.getElementById("downR").value,
+        monthlyDebt: document.getElementById("monthlyDebt").value,
+        score: document.getElementById("creditScore").value,
+        insurance: document.getElementById("insurance").value,
+        fees: document.getElementById("fees").value,
+        inflation: document.getElementById("inflation").value,
+        savings: document.getElementById("savings").value,
+      }
+    })
+    console.log(this.state);
   }
 
   numberWithCommas(x) {
@@ -85,7 +108,7 @@ class Calc extends React.Component {
                     </div>
                     <div className="spacing">
                       <label>Marital Status</label>
-                      <div className="marital-radio-spacing">
+                      <div className="marital-radio-spacing" id="marital">
                         <input type="radio" name="marital-status" value="single" defaultChecked /> Single
                         <input type="radio" name="marital-status" value="married" /> Married
                       </div>
@@ -106,7 +129,7 @@ class Calc extends React.Component {
                     </div>
                     <div className="spacing">
                       <label>Monthly Debt</label>
-                      <span className="dollar"><input type="text" placeholder="0" /></span>
+                      <span className="dollar"><input type="text" placeholder="0" id="monthlyDebt"/></span>
                     </div>
                     <div className="spacing">
                       <label>Credit Score</label>
@@ -121,19 +144,19 @@ class Calc extends React.Component {
                   <div className="section-inside">
                     <div className="spacing">
                       <label>Annual Homeowner's Insurance</label>
-                    <span className="percentage"><input type="text" placeholder="0" /></span>
+                    <span className="percentage"><input type="text" placeholder="0" id="insurance"/></span>
                     </div>
                     <div className="spacing">
                       <label>Monthly HOA / Condo Fees</label>
-                      <span className="dollar"><input type="text" placeholder="0" /></span>
+                      <span className="dollar"><input type="text" placeholder="0" id="fees"/></span>
                     </div>
                     <div className="spacing">
                       <label>Annual General Inflation</label>
-                      <span className="percentage"><input type="text" placeholder="0" /></span>
+                      <span className="percentage"><input type="text" placeholder="0" id="inflation"/></span>
                     </div>
                     <div className="spacing">
                       <label>Annual Rate of Return on Savings</label>
-                      <span className="percentage"><input type="text" placeholder="0" /></span>
+                      <span className="percentage"><input type="text" placeholder="0" id="savings"/></span>
                     </div>
                   </div>
                 </div>
@@ -146,7 +169,15 @@ class Calc extends React.Component {
       </div>
     } else if (this.state.pageType === 'result'){
       displayPage = <div>
-        this is the results page
+        marital status: {this.state.formData.maritalStatus}
+        annual income: {this.state.formData.annualIncome}
+        down payment: {this.state.formData.downPayment}
+        monthly debt: {this.state.formData.monthlyDebt}
+        score: {this.state.formData.score}
+        insurance: {this.state.formData.insurance}
+        fees: {this.state.formData.fees}
+        inflation: {this.state.formData.inflation}
+        savings: {this.state.formData.savings}
       </div>
     }
     return (
