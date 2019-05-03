@@ -4,7 +4,7 @@ class ScoreDropdown extends React.Component {
   render() {
     return(
       <div className="styled-select semi-square">
-        <select name="credit-score" value={this.props.currentScore} onChange={this.props.onUpdateScore} id="creditScore">
+        <select name="score" value={this.props.currentScore} onChange={this.props.handleInputChange} id="creditScore">
           <option value="760">Excellent (760+)</option>
           <option value="740">Excellent (740-759)</option>
           <option value="720">Very Good (720-739)</option>

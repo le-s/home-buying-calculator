@@ -8,62 +8,38 @@ class Calc extends React.Component {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleReset = this.handleReset.bind(this);
-    this.onUpdateScore = this.onUpdateScore.bind(this);
-    this.handleAnnualSlider = this.handleAnnualSlider.bind(this);
-    this.handleAnnualText = this.handleAnnualText.bind(this);
-    this.handleDownSlider = this.handleDownSlider.bind(this);
-    this.handleDownText = this.handleDownText.bind(this);
     this.numberWithCommas = this.numberWithCommas.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
     this.state = {
-      pageType: 'calc',
+      pageType: "calc",
       formData: {
-        maritalStatus: 'single',
-        annualIncome: '0',
-        downPayment: '0',
-        monthlyDebt: '0',
-        score: '0',
-        insurance: '0',
-        fees: '0',
-        inflation: '2',
-        savings: '4'
-      },
-    };
-  }
-
-  onUpdateScore(e) {
-    this.setState({
-      formData: {
-        score: e.target.value
+        maritalStatus: "single",
+        annualIncome: "0",
+        downPayment: "0",
+        monthlyDebt: "0",
+        score: "760",
+        insurance: "0",
+        fees: "0",
+        inflation: "2",
+        savings: "4"
       }
-    });
+    };
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.setState({ 
-      pageType: 'result',
-      formData: {
-        maritalStatus: document.querySelector('input[name="marital-status"]:checked').value,
-        annualIncome: document.getElementById("annualR").value,
-        downPayment: document.getElementById("downR").value,
-        monthlyDebt: document.getElementById("monthlyDebt").value,
-        score: document.getElementById("creditScore").value,
-        insurance: document.getElementById("insurance").value,
-        fees: document.getElementById("fees").value,
-        inflation: document.getElementById("inflation").value,
-        savings: document.getElementById("savings").value,
-      }
-    })
+    this.setState({
+      pageType: "result",
+    });
+    console.log(this.state);
   }
 
   handleReset(e) {
     e.preventDefault();
     this.setState({
-      pageType: 'calc',
-      formData: {
-
-      }
-    })
+      pageType: "calc",
+      formData: {}
+    });
   }
 
   numberWithCommas(x) {
@@ -72,35 +48,40 @@ class Calc extends React.Component {
     return parts.join(".");
   }
 
-  handleAnnualSlider() {
-    document.getElementById("annualRange").value = this.numberWithCommas(document.getElementById("annualR").value);
-  }
+  handleInputChange(e) {
+    e.preventDefault();
+    const target = e.target;
+    // const value = target.type === "checkbox" ? target.checked : target.value;
+    const name = target.name;
 
-  handleAnnualText() {
-    document.getElementById("annualR").value = document.getElementById("annualRange").value.toLocaleString();
-  }
-
-  handleDownSlider() {
-    document.getElementById("downRange").value = this.numberWithCommas(document.getElementById("downR").value);
-  }
-
-  handleDownText() {
-    document.getElementById("downR").value = document.getElementById("downRange").value;
+    return this.setState({
+      formData: Object.assign({}, this.state.formData, {
+        [name]: target.value
+      })
+    });
   }
 
   render() {
     let displayPage;
-    if (this.state.pageType === 'calc') {
-      displayPage = <Calculator submit={this.handleSubmit} annualSlider={this.handleAnnualSlider} annualText={this.handleAnnualText} downSlider={this.handleDownSlider} downText={this.handleDownText} updateScore={this.onUpdateScore} state={this.state}/>
-      
-    } else if (this.state.pageType === 'result'){
-      displayPage = <Result formData={this.state.formData} commas={this.numberWithCommas} reset={this.handleReset}/>
+    if (this.state.pageType === "calc") {
+      displayPage = (
+        <Calculator
+          handleInputChange={this.handleInputChange}
+          submit={this.handleSubmit}
+          formData={this.state.formData}
+          commas={this.numberWithCommas}
+        />
+      );
+    } else if (this.state.pageType === "result") {
+      displayPage = (
+        <Result
+          formData={this.state.formData}
+          commas={this.numberWithCommas}
+          reset={this.handleReset}
+        />
+      );
     }
-    return (
-      <div>
-        {displayPage}
-      </div>
-    );
+    return <div>{displayPage}</div>;
   }
 }
 

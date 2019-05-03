@@ -30,7 +30,7 @@ class Result extends React.Component {
                 <div className="section-inside">
                   <div className="spacing">
                     <p>Estimated Other Costs</p>
-                    <p>${this.props.commas(this.props.formData.monthlyDebt)}</p>
+                    <p>${this.props.formData.monthlyDebt}</p>
                   </div>
                   <div className="spacing">
                     <p>Total Payment</p>
@@ -49,7 +49,9 @@ class Result extends React.Component {
               <div className="result-section-sizing">
                 <div className="header">
                   <span>Down Payment</span>
-                  <span>${this.props.commas(this.props.formData.downPayment)}</span>
+                  <span>$
+                    {this.props.commas(this.props.formData.downPayment)}
+                    </span>
                 </div>
                 <div className="section-inside">
                   <div className="spacing">
@@ -85,12 +87,14 @@ class Result extends React.Component {
               <div className="result-section-sizing round-bottom">
                 <div className="header">
                   <span>Mortgage Amount</span>
-                  <span>${this.props.commas(
-                    Math.round(
-                      parseInt(this.props.formData.annualIncome * 2.5) - 
-                      parseInt(this.props.formData.downPayment)
-                    )
-                  )}</span>
+                  <span>$
+                    {this.props.commas(
+                      Math.round(
+                        parseInt(this.props.formData.annualIncome * 2.5) - 
+                        parseInt(this.props.formData.downPayment)
+                      )
+                    )}
+                  </span>
                 </div>
                 <div className="section-inside">
                   <div className="spacing">

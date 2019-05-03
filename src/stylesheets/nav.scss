@@ -10,97 +10,41 @@
   overflow: hidden;
   z-index: 1;
   margin-bottom: 15px;
-}
 
-.logo-wrapper {
-  display: flex;
-  align-items: center;
-  height: 100%;
-}
-
-.logo {
-  background-image: url("https://static.wixstatic.com/media/9324b7_7f4699ff479543cc8fd29225b747b6a7~mv2_d_2122_1533_s_2.png/v1/crop/x_0,y_355,w_2122,h_823/fill/w_225,h_85,al_c,q_80,usm_0.66_1.00_0.01/9324b7_7f4699ff479543cc8fd29225b747b6a7~mv2_d_2122_1533_s_2.webp");
-  background-size: cover;
-  width: 140px;
-  height: 62px;
-}
-
-.nav-elements-wrapper {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  border-bottom: 1.5px solid #0390E3;
-  margin-left: 20px;
-}
-
-.nav-elements {
-  color: #0390E3;
-}
-
-.profile-wrapper {
-  display: flex;
-  align-items: center;
-  margin-right: 20px;
-}
-
-.profile-image {
-  background-image: url(https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-and-shapes-3/177800/130-512.png);
-  background-size: cover;
-  width: 25px;
-  height: 25px;
-  margin-left: 6px;
-}
-
-
-.navbar {
-  height: 6vh;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  background-color: white;
-  overflow: hidden;
-  z-index: 1;
-  margin-bottom: 15px;
-
-  &__logo-wrapper {
+  &__links {
     display: flex;
     align-items: center;
     height: 100%;
+  }
 
-    &__logo {
-      background-image: url("https://static.wixstatic.com/media/9324b7_7f4699ff479543cc8fd29225b747b6a7~mv2_d_2122_1533_s_2.png/v1/crop/x_0,y_355,w_2122,h_823/fill/w_225,h_85,al_c,q_80,usm_0.66_1.00_0.01/9324b7_7f4699ff479543cc8fd29225b747b6a7~mv2_d_2122_1533_s_2.webp");
-      background-size: cover;
-      width: 140px;
-      height: 62px;
-    }
+  &__logo {
+    background-size: cover;
+    width: 140px;
+    height: 62px;
+  }
 
-    &__nav-elements-wrapper {
-      height: 100%;
-      display: flex;
-      align-items: center;
-      border-bottom: 1.5px solid #0390E3;
-      margin-left: 20px;
+  &__nav-elements-wrapper {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    border-bottom: 1.5px solid #0390E3;
+    margin-left: 20px;
+  }
 
-      &__nav-elements {
-        color: #0390E3;
-      }
-    }
+  &__nav-elements {
+    color: #0390E3;
   }
 
   &__profile-wrapper {
     display: flex;
     align-items: center;
     margin-right: 20px;
+  }
 
-    &__profile-image {
-      background-image: url(https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-and-shapes-3/177800/130-512.png);
-      background-size: cover;
-      width: 25px;
-      height: 25px;
-      margin-left: 6px;
-    }
+  &__profile-image {
+    background-size: cover;
+    width: 25px;
+    height: 25px;
+    margin-left: 6px;
   }
 }
