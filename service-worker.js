@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.0/workbox-sw.js");
 
 importScripts(
-  "/home-buying-calculator/precache-manifest.245d5b99ec635905805479e2aaa57482.js"
+  "/home-buying-calculator/precache-manifest.198f66ff44d756a1cf9f868ba17947fd.js"
 );
 
 self.addEventListener('message', (event) => {
