@@ -1,17 +1,15 @@
 {
   "files": {
-    "main.css": "/home-buying-calculator/static/css/main.4101f7de.chunk.css",
-    "main.js": "/home-buying-calculator/static/js/main.c773fd60.chunk.js",
-    "main.js.map": "/home-buying-calculator/static/js/main.c773fd60.chunk.js.map",
+    "main.css": "/home-buying-calculator/static/css/main.213bb34e.chunk.css",
+    "main.js": "/home-buying-calculator/static/js/main.e7b373a8.chunk.js",
+    "main.js.map": "/home-buying-calculator/static/js/main.e7b373a8.chunk.js.map",
     "runtime~main.js": "/home-buying-calculator/static/js/runtime~main.fe757158.js",
     "runtime~main.js.map": "/home-buying-calculator/static/js/runtime~main.fe757158.js.map",
-    "static/css/2.c7bb94bc.chunk.css": "/home-buying-calculator/static/css/2.c7bb94bc.chunk.css",
-    "static/js/2.cc48f690.chunk.js": "/home-buying-calculator/static/js/2.cc48f690.chunk.js",
-    "static/js/2.cc48f690.chunk.js.map": "/home-buying-calculator/static/js/2.cc48f690.chunk.js.map",
+    "static/js/2.2668f2aa.chunk.js": "/home-buying-calculator/static/js/2.2668f2aa.chunk.js",
+    "static/js/2.2668f2aa.chunk.js.map": "/home-buying-calculator/static/js/2.2668f2aa.chunk.js.map",
     "index.html": "/home-buying-calculator/index.html",
-    "precache-manifest.c1b80bb1f35cbc6d2de1030f22ae1992.js": "/home-buying-calculator/precache-manifest.c1b80bb1f35cbc6d2de1030f22ae1992.js",
+    "precache-manifest.245d5b99ec635905805479e2aaa57482.js": "/home-buying-calculator/precache-manifest.245d5b99ec635905805479e2aaa57482.js",
     "service-worker.js": "/home-buying-calculator/service-worker.js",
-    "static/css/2.c7bb94bc.chunk.css.map": "/home-buying-calculator/static/css/2.c7bb94bc.chunk.css.map",
-    "static/css/main.4101f7de.chunk.css.map": "/home-buying-calculator/static/css/main.4101f7de.chunk.css.map"
+    "static/css/main.213bb34e.chunk.css.map": "/home-buying-calculator/static/css/main.213bb34e.chunk.css.map"
   }
 }
