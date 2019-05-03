@@ -3,13 +3,13 @@ import ScoreDropdown from "./score_dropdown";
 
 class Details extends React.Component {
   render() {
-    return(
-      <div className="section-sizing">
-        <div className="header">
+    return (
+      <div className="calculator-header__section-sizing">
+        <div className="calculator-header__header">
           <span>Details</span>
         </div>
-        <div className="section-inside">
-          <div className="spacing">
+        <div className="calculator-header__section-inside">
+          <div className="calculator-header__spacing">
             <label htmlFor="location">Location</label>
             <input
               id="location"
@@ -18,9 +18,12 @@ class Details extends React.Component {
               autoFocus
             />
           </div>
-          <div className="spacing">
+          <div className="calculator-header__spacing">
             <p>Marital Status</p>
-            <div className="marital-radio-spacing" id="marital">
+            <div
+              className="calculator-header__marital-radio-spacing"
+              id="marital"
+            >
               <input
                 type="radio"
                 name="marital-status"
@@ -38,10 +41,13 @@ class Details extends React.Component {
               <label htmlFor="married">Married</label>
             </div>
           </div>
-          <div className="spacing">
+          <div className="calculator-header__spacing">
             <label htmlFor="annual-income">Annual Income</label>
-            <div className="slider-wrapper" id="annual-income">
-              <span className="dollar">
+            <div
+              className="calculator-header__slider-wrapper"
+              id="annual-income"
+            >
+              <span className="calculator-header__dollar">
                 <input
                   name="annualIncome"
                   type="text"
@@ -50,7 +56,9 @@ class Details extends React.Component {
                   min="0"
                   max="1000000"
                   placeholder="0"
-                  value={this.props.commas(this.props.formData.annualIncome)}
+                  value={this.props.commas(
+                    this.props.formData.annualIncome
+                  )}
                 />
               </span>
               <input
@@ -65,10 +73,13 @@ class Details extends React.Component {
               />
             </div>
           </div>
-          <div className="spacing">
+          <div className="calculator-header__spacing">
             <label htmlFor="down-payment">Down Payment</label>
-            <div className="slider-wrapper" id="down-payment">
-              <span className="dollar">
+            <div
+              className="calculator-header__slider-wrapper"
+              id="down-payment"
+            >
+              <span className="calculator-header__dollar">
                 <input
                   name="downPayment"
                   type="text"
@@ -92,9 +103,9 @@ class Details extends React.Component {
               />
             </div>
           </div>
-          <div className="spacing">
+          <div className="calculator-header__spacing">
             <label htmlFor="monthlyDebt">Monthly Debt</label>
-            <span className="dollar">
+            <span className="calculator-header__dollar">
               <input
                 name="monthlyDebt"
                 type="text"
@@ -104,7 +115,7 @@ class Details extends React.Component {
               />
             </span>
           </div>
-          <div className="spacing">
+          <div className="calculator-header__spacing">
             <label htmlFor="creditScore">Credit Score</label>
             <ScoreDropdown
               currentScore={this.props.formData.score}
@@ -113,7 +124,7 @@ class Details extends React.Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 

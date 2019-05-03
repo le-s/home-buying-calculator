@@ -1,14 +1,21 @@
 import React from 'react';
 
+const HOME_IMG_URL =
+  "http://www.newdesignfile.com/postpic/2012/06/black-white-home-icon_280130.png";
+
 class Result extends React.Component {
   render() {
     return (
       <div>
-        <div className="header-calc-wrapper">
-          <div className="nav-calc">
-            <div className="calc-wrapper">
+        <div className="calculator-header">
+          <div className="calculator-header__nav-calc">
+            <div className="calculator-header__calc-wrapper">
               <span className="result-header">
-                <div className="home-image"></div>
+                <img
+                  src={HOME_IMG_URL}
+                  alt="home"
+                  className="result-header__home-image"
+                />
                 You can afford a $
                 {this.props.commas(
                   Math.round(this.props.formData.annualIncome * 2.5)
@@ -16,7 +23,7 @@ class Result extends React.Component {
                 home!
               </span>
               <div className="result-section-sizing">
-                <div className="header">
+                <div className="calculator-header__header">
                   <span>Mortgage Payment</span>
                   <span>
                     $
@@ -27,19 +34,20 @@ class Result extends React.Component {
                     )}
                   </span>
                 </div>
-                <div className="section-inside">
-                  <div className="spacing">
+                <div className="calculator-header__section-inside">
+                  <div className="calculator-header__spacing">
                     <p>Estimated Other Costs</p>
                     <p>${this.props.formData.monthlyDebt}</p>
                   </div>
-                  <div className="spacing">
+                  <div className="calculator-header__spacing">
                     <p>Total Payment</p>
                     <p>
                       $
                       {this.props.commas(
                         Math.round(
-                          parseInt(this.props.formData.annualIncome * 2.5 * 0.0055) + 
-                          parseInt(this.props.formData.monthlyDebt)
+                          parseInt(
+                            this.props.formData.annualIncome * 2.5 * 0.0055
+                          ) + parseInt(this.props.formData.monthlyDebt)
                         )
                       )}
                     </p>
@@ -47,27 +55,33 @@ class Result extends React.Component {
                 </div>
               </div>
               <div className="result-section-sizing">
-                <div className="header">
+                <div className="calculator-header__header">
                   <span>Down Payment</span>
-                  <span>$
-                    {this.props.commas(this.props.formData.downPayment)}
-                    </span>
+                  <span>
+                    ${this.props.commas(this.props.formData.downPayment)}
+                  </span>
                 </div>
-                <div className="section-inside">
-                  <div className="spacing">
+                <div className="calculator-header__section-inside">
+                  <div className="calculator-header__spacing">
                     <p>Closing Costs</p>
                     <p>
-                      ${this.props.commas(Math.round(this.props.formData.downPayment / 2))}
+                      $
+                      {this.props.commas(
+                        Math.round(this.props.formData.downPayment / 2)
+                      )}
                     </p>
                   </div>
-                  <div className="spacing">
+                  <div className="calculator-header__spacing">
                     <p>Cash Reserve</p>
                     <p>
-                      ${this.props.commas(Math.round(this.props.formData.downPayment / 3))}
+                      $
+                      {this.props.commas(
+                        Math.round(this.props.formData.downPayment / 3)
+                      )}
                     </p>
                   </div>
                   <hr />
-                  <div className="spacing">
+                  <div className="calculator-header__spacing">
                     <p>Recommended Savings</p>
                     <p>
                       $
@@ -85,27 +99,28 @@ class Result extends React.Component {
                 </div>
               </div>
               <div className="result-section-sizing round-bottom">
-                <div className="header">
+                <div className="calculator-header__header">
                   <span>Mortgage Amount</span>
-                  <span>$
+                  <span>
+                    $
                     {this.props.commas(
                       Math.round(
-                        parseInt(this.props.formData.annualIncome * 2.5) - 
-                        parseInt(this.props.formData.downPayment)
+                        parseInt(this.props.formData.annualIncome * 2.5) -
+                          parseInt(this.props.formData.downPayment)
                       )
                     )}
                   </span>
                 </div>
-                <div className="section-inside">
-                  <div className="spacing">
+                <div className="calculator-header__section-inside">
+                  <div className="calculator-header__spacing">
                     <p>Type</p>
                     <p>30 yr Fixed FHA</p>
                   </div>
-                  <div className="spacing">
+                  <div className="calculator-header__spacing">
                     <p>Interest</p>
                     <p>{this.props.formData.inflation}%</p>
                   </div>
-                  <div className="spacing">
+                  <div className="calculator-header__spacing">
                     <p>APR</p>
                     <p>{this.props.formData.savings}%</p>
                   </div>
@@ -114,8 +129,13 @@ class Result extends React.Component {
             </div>
           </div>
         </div>
-        <div className="format-button">
-          <button className="button-blue" onClick={this.props.reset}>Reset</button>
+        <div className="calculator-header__format-button">
+          <button
+            className="calculator-header__button-blue"
+            onClick={this.props.reset}
+          >
+            Reset
+          </button>
         </div>
       </div>
     );

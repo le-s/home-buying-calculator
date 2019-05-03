@@ -2,17 +2,15 @@ import React from "react";
 
 class Advanced extends React.Component {
   render() {
-    return(
-      <div className="section-sizing">
-        <div className="header">
+    return (
+      <div className="calculator-header__section-sizing">
+        <div className="calculator-header__header">
           <span>Advanced</span>
         </div>
-        <div className="section-inside">
-          <div className="spacing">
-            <label htmlFor="insurance">
-              Annual Homeowner's Insurance
-                    </label>
-            <span className="percentage">
+        <div className="calculator-header__section-inside">
+          <div className="calculator-header__spacing">
+            <label htmlFor="insurance">Annual Homeowner's Insurance</label>
+            <span className="calculator-header__percentage">
               <input
                 type="text"
                 placeholder="0"
@@ -22,9 +20,9 @@ class Advanced extends React.Component {
               />
             </span>
           </div>
-          <div className="spacing">
+          <div className="calculator-header__spacing">
             <label htmlFor="fees">Monthly HOA / Condo Fees</label>
-            <span className="dollar">
+            <span className="calculator-header__dollar">
               <input
                 type="text"
                 placeholder="0"
@@ -34,11 +32,9 @@ class Advanced extends React.Component {
               />
             </span>
           </div>
-          <div className="spacing">
-            <label htmlFor="inflation">
-              Annual General Inflation
-                    </label>
-            <span className="percentage">
+          <div className="calculator-header__spacing">
+            <label htmlFor="inflation">Annual General Inflation</label>
+            <span className="calculator-header__percentage">
               <input
                 type="text"
                 defaultValue="2"
@@ -48,11 +44,11 @@ class Advanced extends React.Component {
               />
             </span>
           </div>
-          <div className="spacing">
+          <div className="calculator-header__spacing">
             <label htmlFor="savings">
               Annual Rate of Return on Savings
-                    </label>
-            <span className="percentage">
+            </label>
+            <span className="calculator-header__percentage">
               <input
                 type="text"
                 defaultValue="4"
@@ -64,7 +60,7 @@ class Advanced extends React.Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 

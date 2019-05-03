@@ -6,11 +6,11 @@ class Footer extends React.Component {
       <div className="footer-wrapper">
         <label>FISCAL HIVE ASSIGNMENT 2019</label>
         <div>
-          <label className="dont-click">ABOUT FISCAL HIVE | </label>
-          <label className="dont-click">PRIVACY POLICY | </label>
-          <label className="dont-click">TERMS & CONDITIONS | </label>
-          <label className="dont-click">CONTACT US | </label>
-          <label className="dont-click">PRESS ENQUIRES</label>
+          <label className="footer-wrapper__dont-click">ABOUT FISCAL HIVE | </label>
+          <label className="footer-wrapper__dont-click">PRIVACY POLICY | </label>
+          <label className="footer-wrapper__dont-click">TERMS & CONDITIONS | </label>
+          <label className="footer-wrapper__dont-click">CONTACT US | </label>
+          <label className="footer-wrapper__dont-click">PRESS ENQUIRES</label>
         </div>
       </div>
     )

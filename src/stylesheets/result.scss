@@ -11,6 +11,12 @@
   font-size: 40px;
   border-radius: 12px 12px 0px 0px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+
+  &__home-image {
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+  }
 }
 
 .result-section-sizing {
@@ -23,11 +29,4 @@
 
 .round-bottom {
   border-radius: 0px 0px 12px 12px;
-}
-
-.home-image {
-  background-image: url(http://www.newdesignfile.com/postpic/2012/06/black-white-home-icon_280130.png);
-  background-size: cover;
-  width: 100px;
-  height: 100px;
 }

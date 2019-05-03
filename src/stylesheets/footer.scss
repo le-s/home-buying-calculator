@@ -6,8 +6,9 @@
   color: darkgray;
   font-size: 13px;
   padding: 0px 15px;
+
+  &__dont-click {
+    cursor: not-allowed;
+  }
 }
 
-.dont-click {
-  cursor: not-allowed;
-}

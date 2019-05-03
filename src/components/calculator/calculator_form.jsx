@@ -7,13 +7,16 @@ class CalculatorForm extends React.Component {
 
   render() {
     return (
-      <div className="header-calc-wrapper">
-        <div className="header-title">
-          <h1>What kind of home can I buy?</h1>
-        </div>
-        <div className="nav-calc">
-          <form onSubmit={this.props.submit} className="form-wrapper">
-            <div className="calc-wrapper">
+      <div className="calculator-header">
+        <h1 className="calculator-header__title">
+          What kind of home can I buy?
+        </h1>
+        <div className="calculator-header__nav-calc">
+          <form
+            onSubmit={this.props.submit}
+            className="calculator-header__form-wrapper"
+          >
+            <div className="calculator-header__calc-wrapper">
               <Details
                 handleInputChange={this.props.handleInputChange}
                 commas={this.props.commas}
@@ -21,9 +24,9 @@ class CalculatorForm extends React.Component {
               />
               <Advanced handleInputChange={this.props.handleInputChange} />
             </div>
-            <div className="format-button">
+            <div className="calculator-header__format-button">
               <input
-                className="button-blue"
+                className="calculator-header__button-blue"
                 type="submit"
                 value="Calculate"
               />
