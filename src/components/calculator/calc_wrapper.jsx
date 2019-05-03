@@ -3,8 +3,6 @@ import React from 'react';
 import Calculator from './calculator_form';
 import Result from './result';
 
-import "react-datepicker/dist/react-datepicker.css";
-
 class Calc extends React.Component {
   constructor(props) {
     super(props);

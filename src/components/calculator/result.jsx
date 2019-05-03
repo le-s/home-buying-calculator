@@ -8,6 +8,7 @@ class Result extends React.Component {
           <div className="nav-calc">
             <div className="calc-wrapper">
               <span className="result-header">
+                <div className="home-image"></div>
                 You can afford a $
                 {this.props.commas(
                   Math.round(this.props.formData.annualIncome * 2.5)

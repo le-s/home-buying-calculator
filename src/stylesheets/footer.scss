@@ -1,0 +1,13 @@
+.footer-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  color: darkgray;
+  font-size: 13px;
+  padding: 0px 15px;
+}
+
+.dont-click {
+  cursor: not-allowed;
+}
