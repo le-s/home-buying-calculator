@@ -56,9 +56,9 @@ class Details extends React.Component {
                   min="0"
                   max="1000000"
                   placeholder="0"
-                  value={this.props.commas(
+                  value={
                     this.props.formData.annualIncome
-                  )}
+                  }
                 />
               </span>
               <input
@@ -88,7 +88,7 @@ class Details extends React.Component {
                   min="0"
                   max="10000000"
                   placeholder="0"
-                  value={this.props.commas(this.props.formData.downPayment)}
+                  value={this.props.formData.downPayment}
                 />
               </span>
               <input

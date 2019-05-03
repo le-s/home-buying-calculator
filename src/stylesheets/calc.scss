@@ -94,6 +94,12 @@
     padding-top: 4px;
   }
   
+  &--error {
+    font-size: 12px;
+    font-weight: 500;
+    color: red;
+  }
+
   &__percentage {
     display: inline-block;
     position: relative;

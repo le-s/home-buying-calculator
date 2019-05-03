@@ -63,6 +63,30 @@ class Calc extends React.Component {
     const target = e.target;
     // const value = target.type === "checkbox" ? target.checked : target.value;
     const name = target.name;
+    
+    if (target.type === 'text') {
+      if (isNaN(target.value)) {
+        // alert('Please enter a number');
+        // debugger
+        let error;
+        if (!document.getElementById("error")) {
+          error = document.createElement("div");
+          error.classList.add("calculator-header--error");
+          error.setAttribute("id", "error");
+          error.textContent = "Please enter a valid number";
+          document.getElementById(target.id).after(error);
+        }
+      } else {
+        if (document.getElementById("error")) {
+          document.getElementById("error").remove();
+        }
+        return this.setState({
+          formData: Object.assign({}, this.state.formData, {
+            [name]: target.value
+          })
+        });
+      }
+    }
 
     return this.setState({
       formData: Object.assign({}, this.state.formData, {
