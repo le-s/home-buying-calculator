@@ -38,7 +38,17 @@ class Calc extends React.Component {
     e.preventDefault();
     this.setState({
       pageType: "calc",
-      formData: {}
+      formData: {
+        maritalStatus: "single",
+        annualIncome: "0",
+        downPayment: "0",
+        monthlyDebt: "0",
+        score: "760",
+        insurance: "0",
+        fees: "0",
+        inflation: "2",
+        savings: "4"
+      }
     });
   }
 
